@@ -2,7 +2,7 @@
 <block>
   <name>SBHS Scilab</name>
   <key>slab_sbhs_scilab</key>
-  <category>Scilab</category>
+  <category>SCILAB</category>
   <import>import slab</import>
   <make>slab.sbhs_scilab($filename,$fan_speed, $heater_temperature)</make>
   <callback>set_fan_speed($fan_speed)</callback>
@@ -20,7 +20,7 @@
 		<type>int</type>
 	</param> 
 	<param>
-		<name>Heater Temperature</name>
+		<name>Heater Value</name>
 		<key>heater_temperature</key>
 		<value>0</value>
 		<type>int</type>

@@ -17,13 +17,14 @@ using namespace std;
 slab_sbhs_scilab_sptr 
 slab_make_sbhs_scilab (char* filename,int fan_speed,int heater_temperature)
 {
-  return slab_sbhs_scilab_sptr (new slab_sbhs_scilab (filename,fan_speed,heater_temperature));  
+	return slab_sbhs_scilab_sptr (new slab_sbhs_scilab (filename,fan_speed,heater_temperature));  
 }
 
 void slab_sbhs_scilab::set_fan_speed(int fan_speed)
 {
 	char buffer[100];
 	d_fan_speed=fan_speed;
+
 	SendScilabJob("writeserial(handl,ascii(253));");
 	sprintf(buffer,"FAN=%d",d_fan_speed);
 	SendScilabJob(buffer);
@@ -40,7 +41,6 @@ void slab_sbhs_scilab::set_heater_temperature(int heater_temperature)
 	SendScilabJob(buffer);
 	SendScilabJob("writeserial(handl,ascii(HEATER));");
 }
-
 
 
 float slab_sbhs_scilab::get_scilab(char *var)
@@ -80,14 +80,17 @@ float slab_sbhs_scilab::get_scilab(char *var)
 	return ret;
 }
 
-void slab_sbhs_scilab::python_sleep()
-{	
+void slab_sbhs_scilab::create_file()
+{
 	FILE *fp=fopen("sleeper.py","w");
 	fprintf(fp,"%s","#/usr/bin/env python\n");
 	fprintf(fp,"%s","import time \n");
 	fprintf(fp,"%s","time.sleep(0.05) \n");
 	fclose(fp);
+}
 
+void slab_sbhs_scilab::python_sleep()
+{	
 	system("python sleeper.py");
 }
 
@@ -102,7 +105,12 @@ slab_sbhs_scilab::slab_sbhs_scilab (char* filename,int fan_speed,int heater_temp
 		   gr_make_io_signature (MIN_IN, MAX_IN, 0),
 		   gr_make_io_signature (MIN_OUT, MAX_OUT, sizeof(float)))
 {
+	char cd[100],path[100];	
+	char file[100];
+	int i;
+
 	strcpy(d_filename,filename);
+
 	if ( StartScilab(getenv("SCI"),NULL,NULL) == FALSE )
 	{
 		printf("Error while calling StartScilab\n");
@@ -113,9 +121,7 @@ slab_sbhs_scilab::slab_sbhs_scilab (char* filename,int fan_speed,int heater_temp
 		printf("Scilab Started\n");
 	}
 
-	char cd[100],path[100];	
-	char file[100];
-	int i;
+	create_file();
 
 	strcpy(cd,"cd ");
 
@@ -131,18 +137,22 @@ slab_sbhs_scilab::slab_sbhs_scilab (char* filename,int fan_speed,int heater_temp
 
 	SendScilabJob(cd);
 
-	SendScilabJob("exec ser_init.sce");
+	if(SendScilabJob("exec ser_init.sce")!=0)
+	{
+		printf("Error: Unable to Communicate with the device\n");
+		exit(0);
+	}
+
 	set_fan_speed(fan_speed);
-	set_heater_temperature(heater_temperature);
-	
-	
+	set_heater_temperature(heater_temperature);		
 }
 
 slab_sbhs_scilab::~slab_sbhs_scilab ()
 {
-  if ( TerminateScilab(NULL) == FALSE ) 
+
+  	if ( TerminateScilab(NULL) == FALSE ) 
 	{
-  	printf("Error while calling TerminateScilab\n");
+  		printf("Error while calling TerminateScilab\n");
   	}	
 	else
 	{

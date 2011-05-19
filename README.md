@@ -35,7 +35,7 @@ You can also use the shell script provided as follows;
 	
 	$ sh ./gr_shell.sh
 
-After successfully installing the block you need to make some changes in the .bashrc file.  Open the file scilab_shell.sh present in this directory and copy the commands to your .bashrc file. To open the .bashrc file do as follows;
+After successfully installing the block you need to make some changes in the .bashrc file.  Open the file scilab_shell.sh present in this directory and copy the commands to the end of your .bashrc file. To open the .bashrc file do as follows;
 	
 	$ gedit ~/.bashrc
 

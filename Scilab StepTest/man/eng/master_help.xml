@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY af611e59ba91d7a61da371ba8e873c128 SYSTEM "file:///C:\Users\iitb\Desktop\Serial-0.2\Serial\man\eng\CLOSES~1.XML">
+<!ENTITY a2b4c6d68f2bcbb5e22061d32bf46c3fc SYSTEM "file:///C:\Users\iitb\Desktop\Serial-0.2\Serial\man\eng\OPENSE~1.XML">
+<!ENTITY a63a9c5fa7e70afb1f96d301c1543bbc5 SYSTEM "file:///C:\Users\iitb\Desktop\Serial-0.2\Serial\man\eng\READSE~1.XML">
+<!ENTITY a101f25d3676bcc5d2a0100bd1c169ed6 SYSTEM "file:///C:\Users\iitb\Desktop\Serial-0.2\Serial\man\eng\SERIAL~1.XML">
+<!ENTITY a8aaa819f26bd6049df803cc5eb596491 SYSTEM "file:///C:\Users\iitb\Desktop\Serial-0.2\Serial\man\eng\WRITES~1.XML">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='help_chapter_1_manual'>
+    <title>Help chapter 1</title>
+  </info>
+
+<part xml:id='section_b1404098cc6543ebafa332f2b9e80cf2'>
+<title>Help chapter 1</title>
+&af611e59ba91d7a61da371ba8e873c128;
+&a2b4c6d68f2bcbb5e22061d32bf46c3fc;
+&a63a9c5fa7e70afb1f96d301c1543bbc5;
+&a101f25d3676bcc5d2a0100bd1c169ed6;
+&a8aaa819f26bd6049df803cc5eb596491;
+</part>
+</book>

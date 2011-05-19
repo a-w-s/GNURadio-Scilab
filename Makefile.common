@@ -1,41 +1,4 @@
 # -*- Makefile -*-
-#
-# Copyright 2004,2006,2009,2010 Free Software Foundation, Inc.
-# 
-# This file is part of GNU Radio
-# 
-# GNU Radio is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3, or (at your option)
-# any later version.
-# 
-# GNU Radio is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with GNU Radio; see the file COPYING.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street,
-# Boston, MA 02110-1301, USA.
-# 
-
-
-# With a Scilab source tree:
-SCI=/usr/share/scilab
-export LD_LIBRARY_PATH=$SCI/modules/.libs/:$SCI/modules/call_scilab/.libs/:$SCI/modules/api_scilab/.libs
-
-# With a Scilab binary:
-SCI_PATH=/usr
-export LD_LIBRARY_PATH=$SCI_PATH/lib/scilab/
-
-# Set the path to Java Virtual Machine library; This is mandatory for graphics features
-# Don't forget to update arch (i386) and paths to whatever is necessary
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$JAVA_HOME/jre/lib/i386/:$JAVA_HOME/jre/lib/i386/server/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$JAVA_HOME/jre/lib/i386/native_threads/
-
-export SCI=/usr/share/scilab
 
 # The name of this "out-of-tree" module
 modname = slab
@@ -43,14 +6,13 @@ modname = slab
 # these flags are used when compiling non-SWIG-wrapper files
 # when going in to non-SWIG libraries
 AM_CXXFLAGS = @autoconf_default_CXXFLAGS@ \
-		-lscilab -L/usr/lib/scilab/ -L/usr/lib/scilab/ -I/usr/include/scilab/
+	      -lscilab -L/usr/lib/scilab/ -L/usr/lib/scilab/ -I/usr/include/scilab/
 
 # Sets ABI version in SONAME and appends -LIBVER to filename
 LTVERSIONFLAGS = -version-info 0:0:0 -release $(LIBVER)
 
 # these flags are used when compiling any CXX file
-AM_CPPFLAGS = \
-	$(STD_DEFINES_AND_INCLUDES) \
+AM_CPPFLAGS = $(STD_DEFINES_AND_INCLUDES) \
 	$(PYTHON_CPPFLAGS) \
 	$(CPPUNIT_INCLUDES) \
 	$(GNURADIO_CORE_CPPFLAGS)
@@ -93,4 +55,3 @@ dist-hook:
 		echo $(RM) $(distdir)/$$file; \
 		$(RM) $(distdir)/$$file; \
 	done;
-
