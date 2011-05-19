@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<block>
+  <name>SBHS Scilab</name>
+  <key>slab_sbhs_scilab</key>
+  <category>Scilab</category>
+  <import>import slab</import>
+  <make>slab.sbhs_scilab($filename,$fan_speed, $heater_temperature)</make>
+  <callback>set_fan_speed($fan_speed)</callback>
+  <callback>set_heater_temperature($heater_temperature)</callback>
+	<param>
+		<name>Scilab File</name>
+		<key>filename</key>
+		<value></value>
+		<type>file_open</type>
+	</param>
+        <param>
+		<name>Fan Speed</name>
+		<key>fan_speed</key>
+		<value>0</value>
+		<type>int</type>
+	</param> 
+	<param>
+		<name>Heater Temperature</name>
+		<key>heater_temperature</key>
+		<value>0</value>
+		<type>int</type>
+	</param> 
+	<check>$fan_speed &gt;= 0</check>
+	<check>$fan_speed &lt;= 251</check>
+	<check>$heater_temperature &gt;= 0</check>
+	<check>$heater_temperature &lt;= 40</check>
+	<source>
+		<name>out</name>
+		<type>float</type>
+	</source>
+</block>
+  
+    
+

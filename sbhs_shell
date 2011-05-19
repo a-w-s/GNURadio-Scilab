@@ -1,0 +1,9 @@
+#!/bin/sh
+for udi in `hal-find-by-capability --capability serial | sort` 
+do
+parent=`hal-get-property --udi ${udi} --key 'info.parent'`
+device=`hal-get-property --udi ${udi} --key 'linux.device_file'`
+vendor=`hal-get-property --udi ${parent} --key 'usb.vendor_id'`
+product=`hal-get-property --udi ${parent} --key 'usb.product_id'`
+printf '%s %.4x:%.4x\n' ${device} ${vendor} ${product}
+done
