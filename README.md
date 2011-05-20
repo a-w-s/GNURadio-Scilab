@@ -39,7 +39,7 @@ After successfully installing the block you need to make some changes in the .ba
 	
 	$ gedit ~/.bashrc
 
-Files required by Scilab to interface with SBHS is provided in the sub-directory [Scilab StepTest]. The block requires the path to any of these files in the [Scilab File] parameter present on the block. The device terminal has been hard coded as /dev/ttyUSB0 in the file [ser_init.sce]. Necessary changes can be made in case communication fails. 
+Files required by Scilab to interface with SBHS is provided in the sub-directory [Scilab_StepTest]. The block requires the path to any of these files in the [Scilab File] parameter present on the block. The device terminal has been hard coded as /dev/ttyUSB0 in the file [ser_init.sce]. Necessary changes can be made in case communication fails. 
 	
 
 

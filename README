@@ -35,11 +35,11 @@ You can also use the shell script provided as follows;
 	
 	$ sh ./gr_shell.sh
 
-After successfully installing the block you need to make some changes in the .bashrc file.  Open the file scilab_shell.sh present in this directory and copy the commands to your .bashrc file. To open the .bashrc file do as follows;
+After successfully installing the block you need to make some changes in the .bashrc file.  Open the file scilab_shell.sh present in this directory and copy the commands to the end of your .bashrc file. To open the .bashrc file do as follows;
 	
 	$ gedit ~/.bashrc
 
-Files required by Scilab to interface with SBHS is provided in the sub-directory [Scilab StepTest]. The block requires the path to any of these files in the [Scilab File] parameter present on the block. The device terminal has been hard coded as /dev/ttyUSB0 in the file [ser_init.sce]. Necessary changes can be made in case communication fails. 
+Files required by Scilab to interface with SBHS is provided in the sub-directory [Scilab_StepTest]. The block requires the path to any of these files in the [Scilab File] parameter present on the block. The device terminal has been hard coded as /dev/ttyUSB0 in the file [ser_init.sce]. Necessary changes can be made in case communication fails. 
 	
 
 

@@ -111,15 +111,17 @@ slab_sbhs_scilab::slab_sbhs_scilab (char* filename,int fan_speed,int heater_temp
 
 	strcpy(d_filename,filename);
 
+	#ifdef _MSC_VER
+	if ( StartScilab(NULL,NULL,NULL) == FALSE )
+	#else
 	if ( StartScilab(getenv("SCI"),NULL,NULL) == FALSE )
+	#endif
 	{
 		printf("Error while calling StartScilab\n");
 		exit(0);
 	}
-	else
-	{
-		printf("Scilab Started\n");
-	}
+
+	printf("Scilab Started\n");
 
 	create_file();
 
@@ -135,7 +137,11 @@ slab_sbhs_scilab::slab_sbhs_scilab (char* filename,int fan_speed,int heater_temp
 
 	strcat(cd,path);
 
-	SendScilabJob(cd);
+	if(SendScilabJob(cd)!=0)
+	{
+		printf("Error: Cannot Change Directory; Check your directory name\n");
+		exit(0);
+	}
 
 	if(SendScilabJob("exec ser_init.sce")!=0)
 	{
