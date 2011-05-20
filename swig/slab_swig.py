@@ -177,15 +177,19 @@ class slab_sbhs_scilab_sptr(object):
 
     __swig_destroy__ = _slab_swig.delete_slab_sbhs_scilab_sptr
     __del__ = lambda self : None;
+    d_fan_speed = _swig_property(_slab_swig.slab_sbhs_scilab_sptr_d_fan_speed_get, _slab_swig.slab_sbhs_scilab_sptr_d_fan_speed_set)
+    d_heater_temperature = _swig_property(_slab_swig.slab_sbhs_scilab_sptr_d_heater_temperature_get, _slab_swig.slab_sbhs_scilab_sptr_d_heater_temperature_set)
     def get_scilab(self, *args, **kwargs):
         """get_scilab(self, char var) -> float"""
         return _slab_swig.slab_sbhs_scilab_sptr_get_scilab(self, *args, **kwargs)
 
-    d_fan_speed = _swig_property(_slab_swig.slab_sbhs_scilab_sptr_d_fan_speed_get, _slab_swig.slab_sbhs_scilab_sptr_d_fan_speed_set)
-    d_heater_temperature = _swig_property(_slab_swig.slab_sbhs_scilab_sptr_d_heater_temperature_get, _slab_swig.slab_sbhs_scilab_sptr_d_heater_temperature_set)
     def python_sleep(self):
         """python_sleep(self)"""
         return _slab_swig.slab_sbhs_scilab_sptr_python_sleep(self)
+
+    def create_file(self):
+        """create_file(self)"""
+        return _slab_swig.slab_sbhs_scilab_sptr_create_file(self)
 
     def set_fan_speed(self, *args, **kwargs):
         """set_fan_speed(self, int fan_speed)"""

@@ -11,11 +11,11 @@ prefix=/usr/local
 exec_prefix=${prefix}
 
 # Where to look in the build tree for our shared library
-libbld=/home/ankit/Desktop/gnuradio-scilab/lib
+libbld=/home/abhishek/Desktop/gr-scilab-git/lib
 # Where to look in the build tree for swig generated python code
-libswig=/home/ankit/Desktop/gnuradio-scilab/swig
+libswig=/home/abhishek/Desktop/gr-scilab-git/swig
 # Where to look in the src tree for hand written python code
-py=/home/ankit/Desktop/gnuradio-scilab/python
+py=/home/abhishek/Desktop/gr-scilab-git/python
 
 # Where to look for installed GNU Radio python modules
 # FIXME this is wrong on a distcheck.  We really need to ask gnuradio-core

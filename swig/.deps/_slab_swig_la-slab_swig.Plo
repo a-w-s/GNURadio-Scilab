@@ -180,7 +180,8 @@ _slab_swig_la-slab_swig.lo: slab_swig.cc /usr/include/python2.6/Python.h \
  /usr/include/c++/4.4/map /usr/include/c++/4.4/bits/stl_tree.h \
  /usr/include/c++/4.4/bits/stl_map.h \
  /usr/include/c++/4.4/bits/stl_multimap.h /usr/include/c++/4.4/iterator \
- /usr/include/c++/4.4/bits/stream_iterator.h ../lib/slab_sbhs_scilab.h \
+ /usr/include/c++/4.4/bits/stream_iterator.h \
+ /home/abhishek/Desktop/gr-scilab-git/lib/slab_sbhs_scilab.h \
  /usr/include/gnuradio/gr_block.h /usr/include/gnuradio/gr_basic_block.h \
  /usr/include/gnuradio/gr_runtime_types.h \
  /usr/include/gnuradio/gr_sptr_magic.h \
@@ -748,7 +749,7 @@ _slab_swig_la-slab_swig.lo: slab_swig.cc /usr/include/python2.6/Python.h \
 
 /usr/include/c++/4.4/bits/stream_iterator.h:
 
-../lib/slab_sbhs_scilab.h:
+/home/abhishek/Desktop/gr-scilab-git/lib/slab_sbhs_scilab.h:
 
 /usr/include/gnuradio/gr_block.h:
 

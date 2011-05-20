@@ -4088,6 +4088,32 @@ SWIG_From_int  (int value)
 #include "slab_sbhs_scilab.h"
 
 
+#include <limits.h>
+#if !defined(SWIG_NO_LLONG_MAX)
+# if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
+#   define LLONG_MAX __LONG_LONG_MAX__
+#   define LLONG_MIN (-LLONG_MAX - 1LL)
+#   define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
+# endif
+#endif
+
+
+SWIGINTERN int
+SWIG_AsVal_int (PyObject * obj, int *val)
+{
+  long v;
+  int res = SWIG_AsVal_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v < INT_MIN || v > INT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< int >(v);
+    }
+  }  
+  return res;
+}
+
+
 SWIGINTERN swig_type_info*
 SWIG_pchar_descriptor(void)
 {
@@ -4187,32 +4213,6 @@ SWIGINTERNINLINE PyObject *
 SWIG_From_float  (float value)
 {    
   return SWIG_From_double  (value);
-}
-
-
-#include <limits.h>
-#if !defined(SWIG_NO_LLONG_MAX)
-# if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
-#   define LLONG_MAX __LONG_LONG_MAX__
-#   define LLONG_MIN (-LLONG_MAX - 1LL)
-#   define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
-# endif
-#endif
-
-
-SWIGINTERN int
-SWIG_AsVal_int (PyObject * obj, int *val)
-{
-  long v;
-  int res = SWIG_AsVal_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v < INT_MIN || v > INT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< int >(v);
-    }
-  }  
-  return res;
 }
 
 
@@ -5101,43 +5101,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_slab_sbhs_scilab_sptr_get_scilab(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  boost::shared_ptr< slab_sbhs_scilab > *arg1 = (boost::shared_ptr< slab_sbhs_scilab > *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "var", NULL 
-  };
-  float result;
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:slab_sbhs_scilab_sptr_get_scilab",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_boost__shared_ptrT_slab_sbhs_scilab_t, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "slab_sbhs_scilab_sptr_get_scilab" "', argument " "1"" of type '" "boost::shared_ptr< slab_sbhs_scilab > *""'"); 
-  }
-  arg1 = reinterpret_cast< boost::shared_ptr< slab_sbhs_scilab > * >(argp1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "slab_sbhs_scilab_sptr_get_scilab" "', argument " "2"" of type '" "char *""'");
-  }
-  arg2 = reinterpret_cast< char * >(buf2);
-  result = (float)(*arg1)->get_scilab(arg2);
-  resultobj = SWIG_From_float(static_cast< float >(result));
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
-  return resultobj;
-fail:
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_slab_sbhs_scilab_sptr_d_fan_speed_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   boost::shared_ptr< slab_sbhs_scilab > *arg1 = (boost::shared_ptr< slab_sbhs_scilab > *) 0 ;
@@ -5242,6 +5205,43 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_slab_sbhs_scilab_sptr_get_scilab(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  boost::shared_ptr< slab_sbhs_scilab > *arg1 = (boost::shared_ptr< slab_sbhs_scilab > *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "var", NULL 
+  };
+  float result;
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:slab_sbhs_scilab_sptr_get_scilab",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_boost__shared_ptrT_slab_sbhs_scilab_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "slab_sbhs_scilab_sptr_get_scilab" "', argument " "1"" of type '" "boost::shared_ptr< slab_sbhs_scilab > *""'"); 
+  }
+  arg1 = reinterpret_cast< boost::shared_ptr< slab_sbhs_scilab > * >(argp1);
+  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "slab_sbhs_scilab_sptr_get_scilab" "', argument " "2"" of type '" "char *""'");
+  }
+  arg2 = reinterpret_cast< char * >(buf2);
+  result = (float)(*arg1)->get_scilab(arg2);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_slab_sbhs_scilab_sptr_python_sleep(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   boost::shared_ptr< slab_sbhs_scilab > *arg1 = (boost::shared_ptr< slab_sbhs_scilab > *) 0 ;
@@ -5256,6 +5256,27 @@ SWIGINTERN PyObject *_wrap_slab_sbhs_scilab_sptr_python_sleep(PyObject *SWIGUNUS
   }
   arg1 = reinterpret_cast< boost::shared_ptr< slab_sbhs_scilab > * >(argp1);
   (*arg1)->python_sleep();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_slab_sbhs_scilab_sptr_create_file(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  boost::shared_ptr< slab_sbhs_scilab > *arg1 = (boost::shared_ptr< slab_sbhs_scilab > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if(!PyArg_UnpackTuple(args,(char *)"slab_sbhs_scilab_sptr_create_file",1,1,&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_boost__shared_ptrT_slab_sbhs_scilab_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "slab_sbhs_scilab_sptr_create_file" "', argument " "1"" of type '" "boost::shared_ptr< slab_sbhs_scilab > *""'"); 
+  }
+  arg1 = reinterpret_cast< boost::shared_ptr< slab_sbhs_scilab > * >(argp1);
+  (*arg1)->create_file();
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -5807,12 +5828,13 @@ static PyMethodDef SwigMethods[] = {
 		""},
 	 { (char *)"slab_sbhs_scilab_sptr___deref__", _wrap_slab_sbhs_scilab_sptr___deref__, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr___deref__(slab_sbhs_scilab_sptr self)"},
 	 { (char *)"delete_slab_sbhs_scilab_sptr", _wrap_delete_slab_sbhs_scilab_sptr, METH_VARARGS, (char *)"delete_slab_sbhs_scilab_sptr(slab_sbhs_scilab_sptr self)"},
-	 { (char *)"slab_sbhs_scilab_sptr_get_scilab", (PyCFunction) _wrap_slab_sbhs_scilab_sptr_get_scilab, METH_VARARGS | METH_KEYWORDS, (char *)"slab_sbhs_scilab_sptr_get_scilab(slab_sbhs_scilab_sptr self, char var) -> float"},
 	 { (char *)"slab_sbhs_scilab_sptr_d_fan_speed_set", _wrap_slab_sbhs_scilab_sptr_d_fan_speed_set, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr_d_fan_speed_set(slab_sbhs_scilab_sptr self, int d_fan_speed)"},
 	 { (char *)"slab_sbhs_scilab_sptr_d_fan_speed_get", _wrap_slab_sbhs_scilab_sptr_d_fan_speed_get, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr_d_fan_speed_get(slab_sbhs_scilab_sptr self) -> int"},
 	 { (char *)"slab_sbhs_scilab_sptr_d_heater_temperature_set", _wrap_slab_sbhs_scilab_sptr_d_heater_temperature_set, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr_d_heater_temperature_set(slab_sbhs_scilab_sptr self, int d_heater_temperature)"},
 	 { (char *)"slab_sbhs_scilab_sptr_d_heater_temperature_get", _wrap_slab_sbhs_scilab_sptr_d_heater_temperature_get, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr_d_heater_temperature_get(slab_sbhs_scilab_sptr self) -> int"},
+	 { (char *)"slab_sbhs_scilab_sptr_get_scilab", (PyCFunction) _wrap_slab_sbhs_scilab_sptr_get_scilab, METH_VARARGS | METH_KEYWORDS, (char *)"slab_sbhs_scilab_sptr_get_scilab(slab_sbhs_scilab_sptr self, char var) -> float"},
 	 { (char *)"slab_sbhs_scilab_sptr_python_sleep", _wrap_slab_sbhs_scilab_sptr_python_sleep, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr_python_sleep(slab_sbhs_scilab_sptr self)"},
+	 { (char *)"slab_sbhs_scilab_sptr_create_file", _wrap_slab_sbhs_scilab_sptr_create_file, METH_VARARGS, (char *)"slab_sbhs_scilab_sptr_create_file(slab_sbhs_scilab_sptr self)"},
 	 { (char *)"slab_sbhs_scilab_sptr_set_fan_speed", (PyCFunction) _wrap_slab_sbhs_scilab_sptr_set_fan_speed, METH_VARARGS | METH_KEYWORDS, (char *)"slab_sbhs_scilab_sptr_set_fan_speed(slab_sbhs_scilab_sptr self, int fan_speed)"},
 	 { (char *)"slab_sbhs_scilab_sptr_set_heater_temperature", (PyCFunction) _wrap_slab_sbhs_scilab_sptr_set_heater_temperature, METH_VARARGS | METH_KEYWORDS, (char *)"slab_sbhs_scilab_sptr_set_heater_temperature(slab_sbhs_scilab_sptr self, int heater_temperature)"},
 	 { (char *)"slab_sbhs_scilab_sptr_general_work", (PyCFunction) _wrap_slab_sbhs_scilab_sptr_general_work, METH_VARARGS | METH_KEYWORDS, (char *)"\n"

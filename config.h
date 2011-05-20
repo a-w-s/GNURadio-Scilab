@@ -105,7 +105,7 @@
 /* #undef MKDIR_TAKES_ONE_ARG */
 
 /* Name of package */
-#define PACKAGE "myDirectory"
+#define PACKAGE "gr-scilab"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT ""

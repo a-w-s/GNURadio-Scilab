@@ -448,10 +448,11 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/ankit/Desktop/gr-scilab-sbhs-w'
+ac_pwd='/home/abhishek/Desktop/gr-scilab-git'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
-AWK='mawk'
+MKDIR_P='/bin/mkdir -p'
+AWK='gawk'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
 ac_need_defaults=:
@@ -675,7 +676,7 @@ finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
 sys_lib_search_path_spec='/usr/lib/gcc/i686-linux-gnu/4.4.5 /usr/lib /lib /usr/lib/i686-linux-gnu'
-sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/mesa /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/lib/alsa-lib /usr/local/lib /usr/lib/root '
+sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/mesa /lib/i486-linux-gnu /usr/lib/i486-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/lib/alsa-lib /usr/local/lib '
 hardcode_action='immediate'
 enable_dlopen='unknown'
 enable_dlopen_self='unknown'
@@ -781,7 +782,7 @@ if test -n "${ZSH_VERSION+set}" ; then
 fi
 
 
-    PACKAGE='myDirectory'
+    PACKAGE='gr-scilab'
     VERSION='3.3.0'
     TIMESTAMP=''
     RM='rm -f'
@@ -872,6 +873,8 @@ fi
 
 echo 'BEGIN {' >"$tmp/subs1.awk" &&
 cat >>"$tmp/subs1.awk" <<\_ACAWK &&
+S["am__EXEEXT_FALSE"]=""
+S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
 S["CPPUNIT_CONFIG"]=""
 S["CPPUNIT_CPPFLAGS"]=""
@@ -894,9 +897,9 @@ S["SWIG_PYTHON_OPT"]="-python"
 S["SWIG_PYTHON_LIB"]="-lswigpy"
 S["PYTHON_LDFLAGS"]=""
 S["PYTHON_CPPFLAGS"]="-I/usr/include/python2.6"
-S["pkgpyexecdir"]="${pyexecdir}/myDirectory"
+S["pkgpyexecdir"]="${pyexecdir}/gr-scilab"
 S["pyexecdir"]="${exec_prefix}/lib/python2.6/dist-packages"
-S["pkgpythondir"]="${pythondir}/myDirectory"
+S["pkgpythondir"]="${pythondir}/gr-scilab"
 S["pythondir"]="${prefix}/lib/python2.6/dist-packages"
 S["PYTHON_PLATFORM"]="linux2"
 S["PYTHON_EXEC_PREFIX"]="${exec_prefix}"
@@ -925,6 +928,9 @@ S["DLLTOOL"]="dlltool"
 S["AS"]="as"
 S["RM_PROG"]="/bin/rm"
 S["LN_S"]="ln -s"
+S["am__fastdepCCAS_FALSE"]="#"
+S["am__fastdepCCAS_TRUE"]=""
+S["CCASDEPMODE"]="depmode=gcc3"
 S["CCASFLAGS"]="-g -O2"
 S["CCAS"]="gcc"
 S["lf_CXXFLAGS"]=" -Wall -Woverloaded-virtual"
@@ -960,29 +966,31 @@ S["CFLAGS"]="-g -O2"
 S["CC"]="gcc"
 S["am__untar"]="tar -xf -"
 S["am__tar"]="tar --format=ustar -chf - \"$$tardir\""
-S["AMTAR"]="${SHELL} /home/ankit/Desktop/gr-scilab-sbhs-w/missing --run tar"
+S["AMTAR"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/missing --run tar"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
-S["AWK"]="mawk"
-S["mkdir_p"]="mkdir -p --"
-S["INSTALL_STRIP_PROGRAM"]="${SHELL} $(install_sh) -c -s"
+S["AWK"]="gawk"
+S["mkdir_p"]="/bin/mkdir -p"
+S["MKDIR_P"]="/bin/mkdir -p"
+S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="/home/ankit/Desktop/gr-scilab-sbhs-w/install-sh"
-S["MAKEINFO"]="${SHELL} /home/ankit/Desktop/gr-scilab-sbhs-w/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/ankit/Desktop/gr-scilab-sbhs-w/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/ankit/Desktop/gr-scilab-sbhs-w/missing --run automake-1.9"
-S["AUTOCONF"]="${SHELL} /home/ankit/Desktop/gr-scilab-sbhs-w/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/ankit/Desktop/gr-scilab-sbhs-w/missing --run aclocal-1.9"
+S["install_sh"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/install-sh"
+S["MAKEINFO"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/abhishek/Desktop/gr-scilab-git/missing --run aclocal-1.11"
 S["VERSION"]="3.3.0"
-S["PACKAGE"]="myDirectory"
+S["PACKAGE"]="gr-scilab"
 S["CYGPATH_W"]="echo"
+S["am__isrc"]=""
 S["INSTALL_DATA"]="${INSTALL} -m 644"
 S["INSTALL_SCRIPT"]="${INSTALL}"
 S["INSTALL_PROGRAM"]="${INSTALL}"
 S["LIBVER"]="3.3.0"
 S["DOCVER"]="3.3.0"
 S["RELEASE"]="3.3.0"
-S["GIT_COMMIT"]=""
+S["GIT_COMMIT"]="0b4e95b1"
 S["GIT_SEQNO"]=""
 S["GIT_TAG"]=""
 S["GIT_DESCRIBE"]=""
@@ -1084,7 +1092,7 @@ D["PACKAGE_VERSION"]=" \"\""
 D["PACKAGE_STRING"]=" \"\""
 D["PACKAGE_BUGREPORT"]=" \"\""
 D["PACKAGE_URL"]=" \"\""
-D["PACKAGE"]=" \"myDirectory\""
+D["PACKAGE"]=" \"gr-scilab\""
 D["VERSION"]=" \"3.3.0\""
 D["STDC_HEADERS"]=" 1"
 D["HAVE_SYS_TYPES_H"]=" 1"
@@ -1299,6 +1307,11 @@ ac_abs_srcdir=$ac_abs_top_srcdir$ac_dir_suffix
   [\\/$]* | ?:[\\/]* ) ac_INSTALL=$INSTALL ;;
   *) ac_INSTALL=$ac_top_build_prefix$INSTALL ;;
   esac
+  ac_MKDIR_P=$MKDIR_P
+  case $MKDIR_P in
+  [\\/$]* | ?:[\\/]* ) ;;
+  */*) ac_MKDIR_P=$ac_top_build_prefix$MKDIR_P ;;
+  esac
 # If the template does not know about datarootdir, expand it.
 # FIXME: This hack should be removed a few years after 2.60.
 ac_datarootdir_hack=; ac_datarootdir_seen=
@@ -1355,6 +1368,7 @@ s&@builddir@&$ac_builddir&;t t
 s&@abs_builddir@&$ac_abs_builddir&;t t
 s&@abs_top_builddir@&$ac_abs_top_builddir&;t t
 s&@INSTALL@&$ac_INSTALL&;t t
+s&@MKDIR_P@&$ac_MKDIR_P&;t t
 $ac_datarootdir_hack
 "
 eval sed \"\$ac_sed_extra\" "$ac_file_inputs" | $AWK -f "$tmp/subs.awk" >$tmp/out \
@@ -1399,21 +1413,22 @@ $as_echo "$as_me: $ac_file is unchanged" >&6;}
       || as_fn_error $? "could not create -" "$LINENO" 5
   fi
 # Compute "$ac_file"'s index in $config_headers.
+_am_arg="$ac_file"
 _am_stamp_count=1
 for _am_header in $config_headers :; do
   case $_am_header in
-    "$ac_file" | "$ac_file":* )
+    $_am_arg | $_am_arg:* )
       break ;;
     * )
       _am_stamp_count=`expr $_am_stamp_count + 1` ;;
   esac
 done
-echo "timestamp for "$ac_file"" >`$as_dirname -- "$ac_file" ||
-$as_expr X"$ac_file" : 'X\(.*[^/]\)//*[^/][^/]*/*$' \| \
-	 X"$ac_file" : 'X\(//\)[^/]' \| \
-	 X"$ac_file" : 'X\(//\)$' \| \
-	 X"$ac_file" : 'X\(/\)' \| . 2>/dev/null ||
-$as_echo X"$ac_file" |
+echo "timestamp for $_am_arg" >`$as_dirname -- "$_am_arg" ||
+$as_expr X"$_am_arg" : 'X\(.*[^/]\)//*[^/][^/]*/*$' \| \
+	 X"$_am_arg" : 'X\(//\)[^/]' \| \
+	 X"$_am_arg" : 'X\(//\)$' \| \
+	 X"$_am_arg" : 'X\(/\)' \| . 2>/dev/null ||
+$as_echo X"$_am_arg" |
     sed '/^X\(.*[^/]\)\/\/*[^/][^/]*\/*$/{
 	    s//\1/
 	    q
@@ -1440,17 +1455,28 @@ $as_echo "$as_me: executing $ac_file commands" >&6;}
 
 
   case $ac_file$ac_mode in
-    "depfiles":C) test x"$AMDEP_TRUE" != x"" || for mf in $CONFIG_FILES; do
-  # Strip MF so we end up with the name of the file.
-  mf=`echo "$mf" | sed -e 's/:.*$//'`
-  # Check whether this is an Automake generated Makefile or not.
-  # We used to match only the files named `Makefile.in', but
-  # some people rename them; so instead we look at the file content.
-  # Grep'ing the first line is not enough: some people post-process
-  # each Makefile.in and add a new line on top of each file to say so.
-  # So let's grep whole file.
-  if grep '^#.*generated by automake' $mf > /dev/null 2>&1; then
-    dirpart=`$as_dirname -- "$mf" ||
+    "depfiles":C) test x"$AMDEP_TRUE" != x"" || {
+  # Autoconf 2.62 quotes --file arguments for eval, but not when files
+  # are listed without --file.  Let's play safe and only enable the eval
+  # if we detect the quoting.
+  case $CONFIG_FILES in
+  *\'*) eval set x "$CONFIG_FILES" ;;
+  *)   set x $CONFIG_FILES ;;
+  esac
+  shift
+  for mf
+  do
+    # Strip MF so we end up with the name of the file.
+    mf=`echo "$mf" | sed -e 's/:.*$//'`
+    # Check whether this is an Automake generated Makefile or not.
+    # We used to match only the files named `Makefile.in', but
+    # some people rename them; so instead we look at the file content.
+    # Grep'ing the first line is not enough: some people post-process
+    # each Makefile.in and add a new line on top of each file to say so.
+    # Grep'ing the whole file is not good either: AIX grep has a line
+    # limit of 2048, but all sed's we know have understand at least 4000.
+    if sed -n 's,^#.*generated by automake.*,X,p' "$mf" | grep X >/dev/null 2>&1; then
+      dirpart=`$as_dirname -- "$mf" ||
 $as_expr X"$mf" : 'X\(.*[^/]\)//*[^/][^/]*/*$' \| \
 	 X"$mf" : 'X\(//\)[^/]' \| \
 	 X"$mf" : 'X\(//\)$' \| \
@@ -1473,28 +1499,28 @@ $as_echo X"$mf" |
 	    q
 	  }
 	  s/.*/./; q'`
-  else
-    continue
-  fi
-  # Extract the definition of DEPDIR, am__include, and am__quote
-  # from the Makefile without running `make'.
-  DEPDIR=`sed -n 's/^DEPDIR = //p' < "$mf"`
-  test -z "$DEPDIR" && continue
-  am__include=`sed -n 's/^am__include = //p' < "$mf"`
-  test -z "am__include" && continue
-  am__quote=`sed -n 's/^am__quote = //p' < "$mf"`
-  # When using ansi2knr, U may be empty or an underscore; expand it
-  U=`sed -n 's/^U = //p' < "$mf"`
-  # Find all dependency output files, they are included files with
-  # $(DEPDIR) in their names.  We invoke sed twice because it is the
-  # simplest approach to changing $(DEPDIR) to its actual value in the
-  # expansion.
-  for file in `sed -n "
-    s/^$am__include $am__quote\(.*(DEPDIR).*\)$am__quote"'$/\1/p' <"$mf" | \
-       sed -e 's/\$(DEPDIR)/'"$DEPDIR"'/g' -e 's/\$U/'"$U"'/g'`; do
-    # Make sure the directory exists.
-    test -f "$dirpart/$file" && continue
-    fdir=`$as_dirname -- "$file" ||
+    else
+      continue
+    fi
+    # Extract the definition of DEPDIR, am__include, and am__quote
+    # from the Makefile without running `make'.
+    DEPDIR=`sed -n 's/^DEPDIR = //p' < "$mf"`
+    test -z "$DEPDIR" && continue
+    am__include=`sed -n 's/^am__include = //p' < "$mf"`
+    test -z "am__include" && continue
+    am__quote=`sed -n 's/^am__quote = //p' < "$mf"`
+    # When using ansi2knr, U may be empty or an underscore; expand it
+    U=`sed -n 's/^U = //p' < "$mf"`
+    # Find all dependency output files, they are included files with
+    # $(DEPDIR) in their names.  We invoke sed twice because it is the
+    # simplest approach to changing $(DEPDIR) to its actual value in the
+    # expansion.
+    for file in `sed -n "
+      s/^$am__include $am__quote\(.*(DEPDIR).*\)$am__quote"'$/\1/p' <"$mf" | \
+	 sed -e 's/\$(DEPDIR)/'"$DEPDIR"'/g' -e 's/\$U/'"$U"'/g'`; do
+      # Make sure the directory exists.
+      test -f "$dirpart/$file" && continue
+      fdir=`$as_dirname -- "$file" ||
 $as_expr X"$file" : 'X\(.*[^/]\)//*[^/][^/]*/*$' \| \
 	 X"$file" : 'X\(//\)[^/]' \| \
 	 X"$file" : 'X\(//\)$' \| \
@@ -1517,11 +1543,12 @@ $as_echo X"$file" |
 	    q
 	  }
 	  s/.*/./; q'`
-    as_dir=$dirpart/$fdir; as_fn_mkdir_p
-    # echo "creating $dirpart/$file"
-    echo '# dummy' > "$dirpart/$file"
+      as_dir=$dirpart/$fdir; as_fn_mkdir_p
+      # echo "creating $dirpart/$file"
+      echo '# dummy' > "$dirpart/$file"
+    done
   done
-done
+}
  ;;
     "libtool":C)
 
